@@ -1,95 +1,51 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client"
 
-export default function Home() {
+
+import trolleyImage from '@/images/trolley.png'
+import img1Image from '@/images/img1.png'
+import img2Image from '@/images/img2.png'
+import img3Image from '@/images/img3.png'
+import img4Image from '@/images/img4.png'
+import img5Image from '@/images/img5.png'
+import img6Image from '@/images/img6.png'
+import img7Image from '@/images/img7.png'
+import img8Image from '@/images/img8.png'
+
+import * as C from '@/App.styles'
+import Image from 'next/image'
+import { useQuery } from '@tanstack/react-query'
+import { getProdutos } from '@/utils/api'
+import { Route, Routes } from 'react-router-dom'
+
+const Page = () => {
+
+  const query = useQuery({ queryKey: ['GET'], queryFn: getProdutos });
+
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+   <C.Container>
+     <C.Header>
+      <C.HeaderText>MKS sistemas</C.HeaderText>
+      <C.HeaderImg>
+        <Image src={trolleyImage} alt=''/>
+      </C.HeaderImg>
+     </C.Header>
+    
+     <C.ProdutoLocal>
+        <C.ProdutoItems>
+          <Image src={img1Image} alt='' width={218} height={285}/>
+          <Image src={img2Image} alt='' width={218} height={285}/>
+          <Image src={img3Image} alt='' width={218} height={285}/>
+          <Image src={img4Image} alt='' width={218} height={285}/>
+          <Image src={img5Image} alt='' width={218} height={285}/>
+          <Image src={img6Image} alt='' width={218} height={285}/>
+          <Image src={img7Image} alt='' width={218} height={285}/>
+          <Image src={img8Image} alt='' width={218} height={285}/>
+        </C.ProdutoItems> 
+     </C.ProdutoLocal>
+      <C.Footer>MKS Sistemas © Todos os direitos reservados</C.Footer>
+   </C.Container>
+  )
 }
+
+export default Page;
